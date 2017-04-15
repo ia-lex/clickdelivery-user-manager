@@ -14,7 +14,7 @@
                         <div class="panel-heading">User Data</div>
                         <div class="panel-body">
                             <form class="form-horizontal" role="form" method="POST" action="{{ route('update') }}">
-                                {{ csrf_field() }}
+                                <!-- {{ csrf_field() }} -->
                                 {{ method_field('PUT') }}
 
                                 <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
