@@ -17,11 +17,12 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('facebook_id')->unique()->nullable();
             $table->string('password');
             $table->integer('role_id');
-            $table->string('phone_number');
-            $table->boolean('able_to_read');
-            $table->boolean('activate');
+            $table->string('phone_number')->nullable();
+            $table->boolean('able_to_read')->default(true);
+            $table->boolean('activate')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
