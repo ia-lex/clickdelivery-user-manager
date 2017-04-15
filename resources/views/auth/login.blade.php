@@ -65,7 +65,6 @@
                                 <a href="{{ route('facebook') }}" type="button" class="btn btn-info">
                                     Login with facebook
                                 </a>
-                                <div class="fb-login-button"></div>
                             </div>
                         </div>
                     </form>
