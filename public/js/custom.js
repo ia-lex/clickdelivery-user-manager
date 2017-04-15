@@ -1,6 +1,7 @@
 (function() {
     function loadUser() {};
     function deleteUser() {};
+    function showModal() {};
 })();
 
 function loadUser(user) {
@@ -15,4 +16,8 @@ function loadUser(user) {
 
 function deleteUser(user) {
     $('#delete-modal #id').val(user.id);
+}
+
+function showModal() {
+    $('#manager-modal').modal('show'); 
 }

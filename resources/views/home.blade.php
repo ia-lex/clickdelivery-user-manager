@@ -16,8 +16,10 @@
                     >
                         Update my personal information
                     </button>
+
                     @if(Auth::user()->role_id == 1)
                     <button 
+                        id="new-user-btn" 
                         type="button" 
                         class="btn btn-success btn-xs" 
                         data-toggle="modal"     
@@ -26,8 +28,9 @@
                         Create new user
                     </button>
                     @endif
+
                     @if(Auth::user()->role_id != 3 && Auth::user()->able_to_read)
-                    <div>
+                    <div class="responsive-table">
                         <h2>Users</h2>
                         <table class="table">
                             <tr>
@@ -47,7 +50,7 @@
                                 <td> {{ $user->name }} </td>
                                 <td> {{ $user->email }} </td>
                                 <td> {{ $user->phone_number }} </td>
-                                <td> {{ $user->role_id }} </td>
+                                <td> {{ $user->role->name }} </td>
                                 <td> {{ $user->activate ? 'YES' : 'NO' }} </td>
                                 <td> {{ $user->able_to_read ? 'YES' : 'NO' }} </td>
                                 @if(Auth::user()->role_id == 1 && $user->id != Auth::user()->id)

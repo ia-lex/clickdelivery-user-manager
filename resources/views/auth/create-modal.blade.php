@@ -7,9 +7,7 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">User Data</h4>
       </div>
-      <div class="modal-body">     
-
-        
+      <div class="modal-body">        
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <div class="panel panel-default">
@@ -77,13 +75,11 @@
                                     <label for="role_id" class="col-md-4 control-label">Role</label>
 
                                     <div class="col-md-6">
-                                        <input id="role_id" type="number" class="form-control" name="role_id">
-
-                                        @if($errors->has('role_id'))
-                                            <span class="help-block">
-                                                <strong>{{ $errors->first('role_id') }}</strong>
-                                            </span>
-                                        @endif
+                                        <select id="role_id" class="form-control" name="role_id">
+                                            <option value="1">Administrator</option>
+                                            <option value="2">Agent</option>
+                                            <option value="3">User</option>
+                                        </select>
                                     </div>
                                 </div>
 
@@ -127,7 +123,6 @@
                     </div>
                 </div>
             </div>
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

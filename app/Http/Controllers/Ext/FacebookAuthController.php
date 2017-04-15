@@ -32,13 +32,18 @@ class FacebookAuthController extends Controller
     	}
 
     	$authUser = $this->getOrCreateUser($user);
-    	Auth::login($authUser, true);
+
+        if (!$authUser) {
+            return back()->with('noAuth', 'Your email is already registered');
+        }
+        
+    	Auth::login($authUser, false);
 
     	return redirect('home');
     }
 
     /**
-     * Get or creates a new user
+     * Get or create a new user
     **/
     private function getOrCreateUser($facebookUser)
     {
@@ -51,6 +56,11 @@ class FacebookAuthController extends Controller
     	$roleId = Role::where('alias', Role::user_role_alias)
             ->first()
             ->id;
+
+        $duplicate = User::where('email', $facebookUser->email)->first();
+        if ($duplicate) {            
+            return ;
+        }
 
     	return User::create([
     		'name' => $facebookUser->name, 

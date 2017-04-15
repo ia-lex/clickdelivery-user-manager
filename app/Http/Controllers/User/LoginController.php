@@ -17,7 +17,13 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
-    
+    /**
+     * Get credentials an attemps a login, if there is no credentials
+     * then an error is returned, if there is credentials but the account
+     * is not activated yet, then a message is showed, if everything is ok
+     * then redirect to manager
+     * @param Request
+    **/
     public function authenticate(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
@@ -33,12 +39,19 @@ class LoginController extends Controller
         
     }
 
+    /**
+     * Close the session and redirect to login
+     *
+    **/
     public function logout()
     {       
         $this->closeSession();
         return redirect()->route('login');
     }    
 
+    /**
+     * Flush and logout the actual user
+    **/
     private function closeSession()
     {
         Session::flush();

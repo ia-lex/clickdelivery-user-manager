@@ -62,7 +62,7 @@
                                 <a href="{{ route('register') }}" type="button" class="btn btn-primary">                                    
                                     Sign up
                                 </a>
-                                <a href="{{ route('facebook') }}" type="button" class="btn btn-info">
+                                <a id="facebutton" href="{{ route('facebook') }}" type="button" class="btn btn-info">
                                     Login with facebook
                                 </a>
                             </div>

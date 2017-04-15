@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect()->route('login');
+    return redirect('login');
 })->name('home');
 // Handle login routes
 Route::get('/login', 'User\LoginController@show')->name('login');

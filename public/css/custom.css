@@ -1,3 +1,18 @@
 .top-separate {
 	margin-top: 10px;
 }
+
+.responsive-table {
+	overflow-x: auto;
+}
+
+@media only screen and (max-width: 370px) {
+    #facebutton {
+        margin-top: 12px;
+    }
+}
+@media only screen and (max-width: 359px) {
+    #new-user-btn {
+        margin-top: 12px;
+    }
+}
