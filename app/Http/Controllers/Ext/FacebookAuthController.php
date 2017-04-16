@@ -34,7 +34,7 @@ class FacebookAuthController extends Controller
     	$authUser = $this->getOrCreateUser($user);
 
         if (!$authUser) {
-            return back()->with('noAuth', 'Your email is already registered');
+            return back()->with('noAuth', 'You can not be logged with your facebook account');
         }
         
     	Auth::login($authUser, false);
@@ -58,9 +58,10 @@ class FacebookAuthController extends Controller
             ->id;
 
         $duplicate = User::where('email', $facebookUser->email)->first();
-        if ($duplicate) {            
+        if ($duplicate || !$facebookUser->email) {            
             return ;
         }
+
 
     	return User::create([
     		'name' => $facebookUser->name, 
